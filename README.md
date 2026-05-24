@@ -175,7 +175,8 @@ Final Training Loss:
 ```text
 2.2045
 ```
-
+wandb:  View run TransformerBaseline at: https://wandb.ai/omkarchaudhari21-iitmaana/DA6401_A3/runs/3gyn9wxr
+wandb:  View project at: https://wandb.ai/omkarchaudhari21-iitmaana/DA6401_A3
 ---
 
 ## Observations
