@@ -569,8 +569,8 @@ class Transformer(nn.Module):
 
     def __init__(
         self,
-        src_vocab_size:int,
-        tgt_vocab_size:int,
+        src_vocab_size:int = 10000,
+        tgt_vocab_size:int = 10000, 
         d_model:int=512,
         N:int=6,
         num_heads:int=8,
@@ -578,7 +578,6 @@ class Transformer(nn.Module):
         dropout:float=0.1,
         checkpoint_path:str=None,
     )->None:
-
         super().__init__()
 
         self.d_model=d_model
