@@ -1,0 +1,59 @@
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# W&B logs
+wandb/
+
+# Hugging Face cache
+.cache/
+.huggingface/
+
+# Model checkpoints
+*.pth
+*.pt
+best_model.pth
+
+# Dataset files
+data/
+datasets/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Matplotlib cache
+.matplotlib/
+
+# Generated plots/images
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Test cache
+.pytest_cache/
