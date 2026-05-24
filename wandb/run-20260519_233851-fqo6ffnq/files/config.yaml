@@ -1,0 +1,50 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        e:
+            5cdxx4tlapk6p6cf8ftwkrrw0gxqamox:
+                codePath: train.py
+                codePathLocal: train.py
+                cpu_count: 12
+                cpu_count_logical: 16
+                disk:
+                    /:
+                        total: "295479275520"
+                        used: "257446690816"
+                email: na22b059@smail.iitm.ac.in
+                executable: C:\Users\Omkar Chaudhari\OneDrive\Desktop\da6401_A3\venv\Scripts\python.exe
+                git:
+                    remote: https://github.com/OmkarChaudhari21/da6401_A3
+                host: LAPTOP-0KBDEOGG
+                memory:
+                    total: "8242008064"
+                os: Windows-11-10.0.26200-SP0
+                program: C:\Users\Omkar Chaudhari\OneDrive\Desktop\da6401_A3\train.py
+                python: CPython 3.14.0
+                root: C:\Users\Omkar Chaudhari\OneDrive\Desktop\da6401_A3
+                startedAt: "2026-05-19T18:08:51.381864Z"
+                writerId: 5cdxx4tlapk6p6cf8ftwkrrw0gxqamox
+        m: []
+        python_version: 3.14.0
+        t:
+            "1":
+                - 1
+                - 33
+                - 49
+                - 51
+                - 100
+            "2":
+                - 1
+                - 33
+                - 49
+                - 51
+                - 100
+            "3":
+                - 2
+                - 13
+            "4": 3.14.0
+            "5": 0.27.0
+            "8":
+                - 3
+            "12": 0.27.0
+            "13": windows-amd64

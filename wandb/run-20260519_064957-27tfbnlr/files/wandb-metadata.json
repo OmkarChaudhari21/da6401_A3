@@ -1,0 +1,27 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "CPython 3.14.0",
+  "startedAt": "2026-05-19T01:19:57.599602Z",
+  "program": "C:\\Users\\Omkar Chaudhari\\OneDrive\\Desktop\\da6401_A3\\train.py",
+  "codePath": "train.py",
+  "codePathLocal": "train.py",
+  "git": {
+    "remote": "https://github.com/OmkarChaudhari21/da6401_A3"
+  },
+  "email": "na22b059@smail.iitm.ac.in",
+  "root": "C:\\Users\\Omkar Chaudhari\\OneDrive\\Desktop\\da6401_A3",
+  "host": "LAPTOP-0KBDEOGG",
+  "executable": "C:\\Users\\Omkar Chaudhari\\OneDrive\\Desktop\\da6401_A3\\venv\\Scripts\\python.exe",
+  "cpu_count": 12,
+  "cpu_count_logical": 16,
+  "disk": {
+    "/": {
+      "total": "295479275520",
+      "used": "256368189440"
+    }
+  },
+  "memory": {
+    "total": "8242008064"
+  },
+  "writerId": "epr2jaumjmlzppys2l8za849xnrn8nx7"
+}
