@@ -569,83 +569,74 @@ class Transformer(nn.Module):
 
     def __init__(
         self,
-        src_vocab_size:int = 10000,
-        tgt_vocab_size:int = 10000, 
-        d_model:int=512,
-        N:int=6,
-        num_heads:int=8,
-        d_ff:int=2048,
-        dropout:float=0.1,
-        checkpoint_path:str=None,
-    )->None:
+        src_vocab_size: int = 10000,
+        tgt_vocab_size: int = 10000,
+        d_model: int = 512,
+        N: int = 6,
+        num_heads: int = 8,
+        d_ff: int = 2048,
+        dropout: float = 0.1,
+        checkpoint_path: str = None,
+    ) -> None:
+
         super().__init__()
 
-        self.d_model=d_model
+        self.d_model = d_model
 
-        self.src_embedding=nn.Embedding(
+        self.src_embedding = nn.Embedding(
             src_vocab_size,
             d_model
         )
 
-        self.tgt_embedding=nn.Embedding(
+        self.tgt_embedding = nn.Embedding(
             tgt_vocab_size,
             d_model
         )
 
-        self.positional_encoding=PositionalEncoding(
+        self.positional_encoding = PositionalEncoding(
             d_model,
             dropout
         )
 
-        encoder_layer=EncoderLayer(
-            d_model,
-            num_heads,
-            d_ff,
-            dropout
-        )
-
-        decoder_layer=DecoderLayer(
+        encoder_layer = EncoderLayer(
             d_model,
             num_heads,
             d_ff,
             dropout
         )
 
-        self.encoder=Encoder(
+        decoder_layer = DecoderLayer(
+            d_model,
+            num_heads,
+            d_ff,
+            dropout
+        )
+
+        self.encoder = Encoder(
             encoder_layer,
             N
         )
 
-        self.decoder=Decoder(
+        self.decoder = Decoder(
             decoder_layer,
             N
         )
 
-        self.fc_out=nn.Linear(
+        self.fc_out = nn.Linear(
             d_model,
             tgt_vocab_size
         )
 
-        self.dropout=nn.Dropout(
+        self.dropout = nn.Dropout(
             dropout
         )
 
         for p in self.parameters():
-
-            if p.dim()>1:
-
+            if p.dim() > 1:
                 nn.init.xavier_uniform_(p)
 
         if checkpoint_path is not None:
-
-            gdown.download(
-                id="<.pth drive id>",
-                output=checkpoint_path,
-                quiet=False
-            )
-
             self.load_state_dict(
-
                 torch.load(
                     checkpoint_path,
                     map_location="cpu"
