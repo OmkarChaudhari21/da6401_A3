@@ -743,8 +743,141 @@ class Transformer(nn.Module):
 
         self.eval()
 
-        print(
-            "Inference placeholder"
+        device=next(
+            self.parameters()
+        ).device
+
+        try:
+
+            tokens=src_sentence.lower().split()
+
+        except:
+
+            return ""
+
+        vocab={
+
+            "<pad>":1,
+            "<sos>":2,
+            "<eos>":3,
+            "<unk>":0
+
+        }
+
+        src_indices=[
+
+            vocab["<sos>"]
+
+        ]
+
+        src_indices.extend(
+
+            [
+
+            vocab.get(
+                token,
+                vocab["<unk>"]
+            )
+
+            for token in tokens
+
+            ]
+
         )
 
-        return ""
+        src_indices.append(
+
+            vocab["<eos>"]
+
+        )
+
+        src=torch.tensor(
+
+            src_indices
+
+        ).unsqueeze(
+            0
+        ).to(
+            device
+        )
+
+        src_mask=make_src_mask(
+            src,
+            pad_idx=1
+        )
+
+        memory=self.encode(
+            src,
+            src_mask
+        )
+
+        ys=torch.tensor(
+
+            [[2]]
+
+        ).to(
+            device
+        )
+
+        max_len=50
+
+        for i in range(max_len):
+
+            tgt_mask=make_tgt_mask(
+                ys,
+                pad_idx=1
+            )
+
+            out=self.decode(
+
+                memory,
+
+                src_mask,
+
+                ys,
+
+                tgt_mask
+
+            )
+
+            prob=out[:,-1]
+
+            next_word=torch.argmax(
+                prob,
+                dim=1
+            )
+
+            ys=torch.cat(
+
+                [
+
+                ys,
+
+                next_word.unsqueeze(0)
+
+                ],
+
+                dim=1
+
+            )
+
+            if next_word.item()==3:
+                break
+
+
+        output=[]
+
+        for idx in ys.squeeze():
+
+            idx=idx.item()
+
+            if idx in [1,2,3]:
+                continue
+
+            output.append(
+                str(idx)
+            )
+
+        return " ".join(
+            output
+        )
